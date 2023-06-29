@@ -39,6 +39,7 @@ def all_book():
 
 
 @app.route("/recomend_books", methods=['POST'])
+
 def recomend_book():
    user_input= str(request.form.get('user_input'))
   
@@ -58,7 +59,7 @@ def recomend_book():
                           pitable.index[i[0]]].drop_duplicates("Book-Title")["Book-Rating"].values[0])
         book.append(items)
         
-   print(book) 
+
    return render_template("final.html", book=book,  book_names = book_names)
     
   
@@ -68,4 +69,4 @@ def recomend_book():
   # return render_template('final.html' )
 
 if __name__=="__main__":
-    app.run( host="0.0.0.0", port=8080)
+    app.run( host="0.0.0.0", port=8080, debug=True)
