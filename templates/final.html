@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Book Recomendation System</title>
+
+    <meta name="Author" content="Kuntal Chakraborty">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+
+
+</head>
+
+<style>
+   
+    
+</style>
+
+<body class="bodyc" >
+    
+      
+   
+    <div class = "container">
+        <nav class="navbar" >
+    
+        <a class='nav',><b>Reomendation</b></a><br><br>
+       
+        
+        <a href="/"><span class="span_x" >Home</span></a>
+        <a href="/recomend_ui"><span class="span_x">Recomand</span></a>
+        <a href="/all_books"><span class="span_x">All Books</span></a>
+        <a href="https://github.com/kuntal2022" target="_blank"><span class="span_x">Contact</span></a>
+    
+            </nav> 
+        </div>
+
+        <div style="margin-top: 3%; margin-left: 10%; width: 100%; height: 90%;">
+        <form action="/recomend_books" method="POST">
+            
+            <label class="text_white" ><h1>Recomendation</h1></label><br>
+                    
+            <input name = "user_input" type="text" autocomplete="on" autofocus="" ; 
+            style="font-size: 30px; text-align: left;"><br>
+            
+        <input name="submit" type="submit" class="submit_x">
+        </form>
+
+        </div>
+
+        <div style="width: 100%; height: 100%;">
+            {% if book %}
+            {% for i in   book %}
+            <div style=" color: white; width: 49%; height: 50% ;  float: right; margin-left: 1%;" >
+                
+                <a  target="_blank" style="color: yellow" href="https://www.flipkart.com/search?q={{ i[0] }}"><span><marked>Flipkart Purhase Link : </marked>{{ i[0] }}</span></a>
+                
+                <br>
+               <iframe src="https://www.flipkart.com/search?q={{ i[0] }}" frameborder="0"></iframe><br>
+               <a target="_blank" style="color: yellow" href="https://www.amazon.in/s?k={{ i[0] }}"><span><marked>Amazon Purhase Link</marked></span></a><br>
+               <iframe src="https://www.amazon.in/s?k={{ i[0] }}" frameborder="0"></iframe><br>
+            </div>
+         <div style="text-align: center; width: 49%; height: 50%; border:  solid yellow;">
+            <img src="{{ i[3] }}" class=imgy>
+            <p class="text_white">{{ i[0] }}</p>
+            <p class="text_white">{{ i[1] }}</p>
+            <p class="text_white">{{ i[2] }}</p>
+            <p class="text_white">{{ i[4] }}</p>
+           
+            
+        </div>
+            
+           
+            
+            
+            {% endfor %}
+            {% else %}
+            <h3 class="text_white">Enter a Valid Book Name</h3>
+          
+            {% endif %}
+            
+
+        </div>
+       
+
+
+        </form>
+    
+    </body></html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>Book Recomendation System</title>
+
+    <meta name="Author" content="Kuntal Chakraborty">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+
+
+
+</head>
+
+<style>
+   
+    
+</style>
+
+<body class="bodyc" >
+    <div class = "container">
+        <nav class="navbar" >
+    
+        <a class='nav',><b>Listed Books</b></a><br><br>
+        
+        <a href="/"><span class="span_x" >Home</span></a>
+        <a href="/recomend_ui"><span class="span_x">Recomand</span></a>
+        <a href="/all_books"><span class="span_x">All Books</span></a>
+        <a href="https://github.com/kuntal2022" target="_blank"><span class="span_x">Contact</span></a>
+    
+            </nav> 
+        </div>
+        <ul>
+        {% for book in book_names %}
+
+       <li class="text_white" style="text-align: center;"> <p class="text_white" style="text-align: center;">{{ book }}</p></li>
+        {% endfor %}
+
+
+        
+        </ul>
+
+        <form>
+<select >
+    <option value="" disabled selected>Select a book</option>
+    {% for book in book_names %}
+    <option>{{ book }}</option>
+    {% endfor %}
+    </select>
+
+
+        </form>
+</body>
+</html>
+
+        
+        
